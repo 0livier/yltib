@@ -1,4 +1,10 @@
 {
+  "dependencies": {
+    "base62": "^1.1.0",
+    "body-parser": "^1.14.1",
+    "express": "4.2.x",
+    "mongodb": "2.0.x"
+  },
   "devDependencies": {
     "mocha": "2.3.x",
     "supertest": "1.1.x"
