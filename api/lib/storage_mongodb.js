@@ -44,4 +44,10 @@ MongoDBBackend.prototype.add = function (url, cb) {
     );
 };
 
+MongoDBBackend.prototype.get = function (id, cb) {
+    db.collection("url").find({_id: id}).limit(1).next(function(err, doc) {
+        cb(doc ? doc.full_url : null);
+    });
+};
+
 module.exports = MongoDBBackend;
