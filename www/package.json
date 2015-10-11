@@ -1,4 +1,8 @@
 {
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-sass": "^2.0.4"
+  },
   "dependencies": {
     "express": "4.2.x"
   }

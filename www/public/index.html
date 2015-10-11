@@ -4,13 +4,44 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello</title>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
+    <title>Compress your URL</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
+    <link href='/css/welcome.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<p>Hello</p>
 
+<div class="container">
+    <div class="overlay"></div>
+    <div class="cta">
+        <form>
+            <h1><i class="fa fa-compress"></i> your URL</h1>
+            <div class="input-group">
+                <input type="text" class="form-control" id="url" autofocus placeholder="Paste an URL to shorten it" id="shortener" autocomplete="off"
+                       autocorrect="off" autocapitalize="off">
+                <span class="input-group-btn">
+                    <button class="btn" type="button">Shorten!</button>
+                </span>
+            </div>
+        </form>
+        <div class="done">
+            <div class="row">
+                <h2>
+                    <span>
+                        <i class="fa fa-beer rotated-20"></i>
+                        <i class="fa fa-beer rrotated-20"></i>
+                    </span>
+                    Here it is !
+                </h2>
+            </div>
+            <h2><a class="big" id="link" href="">http://url/foobar</a></h2>
+            <h3><a id="again" href="#">another run ?</a></h3>
+        </div>
+    </div>
+</div>
+
+<script src="//code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+<script src="/js/shorturl.js" type="text/javascript"></script>
 </body>
 </html>
