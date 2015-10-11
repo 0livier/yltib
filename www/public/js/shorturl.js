@@ -1,19 +1,22 @@
 function createShortUrl(url, cb) {
-    return $.ajax({url: "http://localhost:3000/v1/urls/", data: JSON.stringify({ url: url }), type:'POST', contentType: 'application/json'}, cb);
+    $.ajax({url: api_url + "/v1/urls/", data: JSON.stringify({ url: url }), type:'POST', contentType: 'application/json'}).done(cb);
 }
 
-function compress() {
-    createShortUrl($('#id').val(), function(data){
+// --------------------------------------------------------------
+
+function compress(event) {
+    event.preventDefault();
+    createShortUrl($('#url').val(), function(data){
         $('#link').text( data.url );
         $('#link').attr("href", data.url);
-        $('form').hide(400, function() {
-            $('.done').show();
+        $('form').fadeOut(400, function() {
+            $('.done').fadeIn(200);
         });
     });
 }
 
 function again() {
-    $('.done').hide(400, function() {
+    $('.done').fadeOut(400, function() {
         $('#id').val('');
         $('form').show();
     });
@@ -21,7 +24,8 @@ function again() {
     return false;
 }
 
-$('form').on('submit', compress);
+// --------------------------------------------------------------
 
+$('form button').click(compress);
 $('#again').on('click', again);
 
