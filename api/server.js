@@ -1,7 +1,13 @@
+require('dotenv').load();
+var config = require('./config.js');
+
+// --------------------------------------------------------------------
+
 var express = require('express');
 var bodyParser = require('body-parser');
 
-var config = require('./config.js');
+// --------------------------------------------------------------------
+
 var StorageMongodb = require('./lib/storage_mongodb.js');
 var storage = new StorageMongodb(config.mongodb, require('base62'));
 
@@ -11,7 +17,7 @@ var app = express();
 app.use(bodyParser.json());
 app.disable('etag');
 
-app.use('/v1', require('./lib/api/v1.js')(express.Router(), storage));
+app.use('/v1', require('./lib/api/v1.js')(config.api, express.Router(), storage));
 
 app.use(function (req, res, next) {
     res.status(404).send({message: '<|°_°|> I just broke', error: 'Resource not found'});

@@ -2,11 +2,16 @@
   "dependencies": {
     "base62": "^1.1.0",
     "body-parser": "^1.14.1",
+    "dotenv": "^1.2.0",
     "express": "4.2.x",
     "mongodb": "2.0.x"
   },
   "devDependencies": {
     "mocha": "2.3.x",
     "supertest": "1.1.x"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "./node_modules/mocha/bin/mocha spec.js --delay"
   }
 }

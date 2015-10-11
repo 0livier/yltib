@@ -1,5 +1,8 @@
 module.exports = {
     mongodb: {
-        url: 'mongodb://127.0.0.1:27017/fasterize'
+        url: process.env.MONGODB_URL
+    },
+    api: {
+        base_url: process.env.BASE_URL
     }
 };

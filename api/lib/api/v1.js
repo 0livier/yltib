@@ -1,6 +1,12 @@
-module.exports = function (router, storage) {
+module.exports = function (config, router, storage) {
 
     var bodyParser = require('body-parser');
+
+    router.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
 
     router.param('id', function (req, res, next, id) {
         if (!id.match(/^[a-zA-Z\d]+$/)) {
@@ -26,7 +32,7 @@ module.exports = function (router, storage) {
             return res.send(400, {message: '<|°_°|> I just broke', error: 'Malformed input'});
         }
         storage.add(req.body.url, function(id) {
-            res.send(201, {message: '<I^‿^I>', id: id});
+            res.send(201, {message: '<I^‿^I>', id: id, url: config.base_url + id});
         })
     });
 
